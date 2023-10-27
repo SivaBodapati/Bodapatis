@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculation Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .calculator {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.5s;
+    }
+
+    .result {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.result p {
+  font-size: 18px;
+  color: #333;
+}
+
+.result p span {
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+}
+
+td {
+  text-align: right;
+  padding: 8px;
+}
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.8);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ᴘᴀɴᴅᴜ O͜͡G𒆜</h1>
+  <div class="calculator" id="calculator">
+    <form id="calcForm">
+      <label for="ltp">LTP:</label><br>
+      <input type="number" id="ltp" name="ltp"><br>
+      <label for="lot">LOT:</label><br>
+      <input type="number" id="lot" name="lot"><br>
+      <button id="calculateBtn">Calculate</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+  document.getElementById('calcForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var ltp = parseFloat(document.getElementById('ltp').value);
+    var lot = parseFloat(document.getElementById('lot').value);
+    var total = ltp * lot;
+    var percentage = total * 1.20;
+    var percentage2 = total * 0.9;
+    var profit = percentage - total;
+    var profit2 = percentage2 - total;
+    var final = percentage / lot;
+    var final2 = percentage2 / lot;
+
+ document.getElementById('result').innerHTML =
+   "<p>Total: <span>" + total.toFixed(2) + "</span></p>" +
+  "<table>" +
+    "<tr><th>20%</th><td>" + percentage.toFixed(2) + "</td></tr>" +
+    "<tr><th>Profit</th><td>" + profit.toFixed(2) + "</td></tr>" +
+    "<tr><th>Final</th><td>" + final.toFixed(2) + "</td></tr>" +
+  "</table>" +
+  "<table>" +
+    "<tr><th>10%</th><td>" + percentage2.toFixed(2) + "</td></tr>" +
+    "<tr><th>Profit</th><td>" + profit2.toFixed(2) + "</td></tr>" +
+    "<tr><th>Final</th><td>" + final2.toFixed(2) + "</td></tr>" +
+  "</table>";
+
+
+
+    document.getElementById('calculator').style.animation = 'scaleIn 0.5s';
+  });
+</script>
+
+</body>
+
+</html>
